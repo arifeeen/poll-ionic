@@ -12,8 +12,7 @@ export class PollService {
   constructor(private http: HttpClient) { }
 
 
-  savePoll(poll: Poll): Observable<any>
-   {
+  savePoll(poll: Poll): Observable<any> {
     return this.http.post(this.url + 'create-poll', poll);
   }
 
