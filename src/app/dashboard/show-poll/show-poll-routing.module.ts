@@ -7,6 +7,14 @@ const routes: Routes = [
   {
     path: '',
     component: ShowPollPage
+  },
+  {
+    path: ':pollId',
+    component: ShowPollPage
+  },
+  {
+    path: 'show-results/:pollId',
+    loadChildren: () => import('./show-results/show-results.module').then( m => m.ShowResultsPageModule)
   }
 ];
 

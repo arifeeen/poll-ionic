@@ -17,6 +17,11 @@ export class PollService {
   }
 
   getPoll(pollId: string) {
-     return this.http.get(this.url + 'get-poll/' + pollId, {observe: 'response'} );
+    return this.http.get(this.url + 'get-poll/' + pollId, { observe: 'response' });
+  }
+
+  saveOption(pollId: string, option: string) {
+    const pollData = { pollId, selectedOption: option };
+    return this.http.post(this.url + 'set-poll', pollData);
   }
 }
