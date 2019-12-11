@@ -1,9 +1,23 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>show-results</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title  class="ion-text-center">Show Results</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard/show-poll" ></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row *ngIf="pollObject">
+      <ion-col class="options" size="12" size-sm="6" offset-sm="3"> 
+        <ion-text><strong>{{pollObject[0].question}}</strong></ion-text>
+      </ion-col>
+      <ion-col class="options" size="12" size-sm="6" offset-sm="3" *ngFor="let options of pollObject[0].options"> 
+          <ion-text >{{options.value}}</ion-text>
+          <ion-text class="ion-float-right">{{" Number of Votes: " + options.counter}}</ion-text>
+          <ion-progress-bar  class="options" [value]="options.counter / pollObject[0].totalResponses"></ion-progress-bar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
