@@ -30,7 +30,7 @@ export class CreatePollPage implements OnInit {
         saveController.dismiss();
         this.alertController.create({
           header: 'Please share the following link for poll',
-          message: `https://check/${res.pollId}`,
+          message: `https://check/${(res as any).pollId}`,
           buttons: ['ok']
         }).then(alrtController => {
           alrtController.present();
